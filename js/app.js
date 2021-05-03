@@ -18,7 +18,7 @@ let Seattle = {
     addingCoutPerHour: function () {
         for (let i = 0; i < hourofOperation.length; i++) {
             this.coutperhour.push(random(this.minCust, this.maxCust));
-            console.log(this.coutperhour);
+            
         }
     },
 
@@ -27,7 +27,6 @@ let Seattle = {
         for (let i = 0; i < hourofOperation.length; i++) {
             let perhour = Math.ceil(this.AvgCookiesale * this.coutperhour[i]);
             this.cookiesperHour.push(perhour);
-            console.log(this.cookiesperHour);
             this.totalCookies += perhour;
 
         }
@@ -79,7 +78,7 @@ let Tokyo = {
     addingCoutPerHour: function () {
         for (let i = 0; i < hourofOperation.length; i++) {
             this.coutperhour.push(random(this.minCust, this.maxCust));
-            console.log(this.coutperhour);
+            
         }
     },
 
@@ -88,7 +87,6 @@ let Tokyo = {
         for (let i = 0; i < hourofOperation.length; i++) {
             let perhour = Math.ceil(this.AvgCookiesale * this.coutperhour[i]);
             this.cookiesperHour.push(perhour);
-            console.log(this.cookiesperHour);
             this.totalCookies += perhour;
 
         }
@@ -134,7 +132,7 @@ let Dubai = {
     addingCoutPerHour: function () {
         for (let i = 0; i < hourofOperation.length; i++) {
             this.coutperhour.push(random(this.minCust, this.maxCust));
-            console.log(this.coutperhour);
+           
         }
     },
 
@@ -143,7 +141,6 @@ let Dubai = {
         for (let i = 0; i < hourofOperation.length; i++) {
             let perhour = Math.ceil(this.AvgCookiesale * this.coutperhour[i]);
             this.cookiesperHour.push(perhour);
-            console.log(this.cookiesperHour);
             this.totalCookies += perhour;
 
         }
@@ -191,7 +188,7 @@ let Paris = {
     addingCoutPerHour: function () {
         for (let i = 0; i < hourofOperation.length; i++) {
             this.coutperhour.push(random(this.minCust, this.maxCust));
-            console.log(this.coutperhour);
+        
         }
     },
 
@@ -200,7 +197,6 @@ let Paris = {
         for (let i = 0; i < hourofOperation.length; i++) {
             let perhour = Math.ceil(this.AvgCookiesale * this.coutperhour[i]);
             this.cookiesperHour.push(perhour);
-            console.log(this.cookiesperHour);
             this.totalCookies += perhour;
 
         }
@@ -248,7 +244,6 @@ let Lima = {
     addingCoutPerHour: function () {
         for (let i = 0; i < hourofOperation.length; i++) {
             this.coutperhour.push(random(this.minCust, this.maxCust));
-            console.log(this.coutperhour);
         }
     },
 
@@ -257,7 +252,6 @@ let Lima = {
         for (let i = 0; i < hourofOperation.length; i++) {
             let perhour = Math.ceil(this.AvgCookiesale * this.coutperhour[i]);
             this.cookiesperHour.push(perhour);
-            console.log(this.cookiesperHour);
             this.totalCookies += perhour;
 
         }
