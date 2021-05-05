@@ -1,55 +1,56 @@
+/* eslint-disable new-cap */
 'use strict';
 
 let hourofOperation = ['6am', '7am', '8am', '9am', '10am',
-    '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+  '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 let market = [];
 function Market(location, minCust, maxCust, AvgCookiesale) {
-    this.location = location;
-    this.minCust = minCust;
-    this.maxCust = maxCust;
-    this.AvgCookiesale = AvgCookiesale;
-    this.coutperhour = [];
-    this.cookiesperHour = [];
-    this.totalCookies = 0;
-    market.push(this);
+  this.location = location;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.AvgCookiesale = AvgCookiesale;
+  this.coutperhour = [];
+  this.cookiesperHour = [];
+  this.totalCookies = 0;
+  market.push(this);
 
 }
 
 
 
 Market.prototype.addingCoutPerHour = function () {
-    for (let i = 0; i < hourofOperation.length; i++) {
-        let hourly = Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-        this.coutperhour.push(hourly);
+  for (let i = 0; i < hourofOperation.length; i++) {
+    let hourly = Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+    this.coutperhour.push(hourly);
 
-    }
-}
+  }
+};
 Market.prototype.cookiesPerHr = function () {
 
-    for (let i = 0; i < hourofOperation.length; i++) {
-        let perhour = Math.ceil(this.AvgCookiesale * this.coutperhour[i]);
-        this.cookiesperHour.push(perhour);
-        this.totalCookies += perhour;
+  for (let i = 0; i < hourofOperation.length; i++) {
+    let perhour = Math.ceil(this.AvgCookiesale * this.coutperhour[i]);
+    this.cookiesperHour.push(perhour);
+    this.totalCookies += perhour;
 
-    }
+  }
 
-}
+};
 Market.prototype.render = function () {
-    let tableRow = document.createElement('tr');
-    tableEl.appendChild(tableRow);
-    let Data = document.createElement('td');
-    tableRow.appendChild(Data);
-    Data.textContent = this.location;
-    for (let i = 0; i < hourofOperation.length; i++) {
-        let tdEl = document.createElement('td');
-        tableRow.appendChild(tdEl);
-        tdEl.textContent = this.cookiesperHour[i];
-    }
+  let tableRow = document.createElement('tr');
+  tableEl.appendChild(tableRow);
+  let Data = document.createElement('td');
+  tableRow.appendChild(Data);
+  Data.textContent = this.location;
+  for (let i = 0; i < hourofOperation.length; i++) {
     let tdEl = document.createElement('td');
     tableRow.appendChild(tdEl);
-    tdEl.textContent = this.totalCookies;
-}
+    tdEl.textContent = this.cookiesperHour[i];
+  }
+  let tdEl = document.createElement('td');
+  tableRow.appendChild(tdEl);
+  tdEl.textContent = this.totalCookies;
+};
 
 let divEl = document.getElementById('cookiestand');
 let articleEl = document.createElement('article');
@@ -58,40 +59,40 @@ let tableEl = document.createElement('table');
 articleEl.appendChild(tableEl);
 
 function HeaderRow() {
-    let tableRow = document.createElement('tr');
-    tableEl.appendChild(tableRow);
-    let tableHeader = document.createElement('th');
-    tableRow.appendChild(tableHeader);
-    tableHeader.textContent = null;
-    for (let index = 0; index < hourofOperation.length; index++) {
-        let thEl = document.createElement('th');
-        tableRow.appendChild(thEl);
-        thEl.textContent = hourofOperation[index];
-    }
-    let th2 = document.createElement('th')
-    tableRow.appendChild(th2);
-    th2.textContent = 'Daily Location Total'
+  let tableRow = document.createElement('tr');
+  tableEl.appendChild(tableRow);
+  let tableHeader = document.createElement('th');
+  tableRow.appendChild(tableHeader);
+  tableHeader.textContent = null;
+  for (let index = 0; index < hourofOperation.length; index++) {
+    let thEl = document.createElement('th');
+    tableRow.appendChild(thEl);
+    thEl.textContent = hourofOperation[index];
+  }
+  let th2 = document.createElement('th');
+  tableRow.appendChild(th2);
+  th2.textContent = 'Daily Location Total';
 }
 function FooterRow() {
-    let tableRow = document.createElement('tr');
-    tableEl.appendChild(tableRow);
-    let Data = document.createElement('td');
-    tableRow.appendChild(Data);
-    Data.textContent = 'Totals';
-    let Total = 0;
-    for (let i = 0; i < hourofOperation.length; i++) {
-        let hourlyTotal = 0;
-        for (let j = 0; j < market.length; j++) {
-            hourlyTotal = hourlyTotal + market[j].cookiesperHour[i];
-            Total += market[j].cookiesperHour[i];
-        }
-        let tdElement = document.createElement('td');
-        tableRow.appendChild(tdElement);
-        tdElement.textContent = hourlyTotal;
+  let tableRow = document.createElement('tr');
+  tableEl.appendChild(tableRow);
+  let Data = document.createElement('td');
+  tableRow.appendChild(Data);
+  Data.textContent = 'Totals';
+  let Total = 0;
+  for (let i = 0; i < hourofOperation.length; i++) {
+    let hourlyTotal = 0;
+    for (let j = 0; j < market.length; j++) {
+      hourlyTotal = hourlyTotal + market[j].cookiesperHour[i];
+      Total += market[j].cookiesperHour[i];
     }
     let tdElement = document.createElement('td');
     tableRow.appendChild(tdElement);
-    tdElement.textContent = Total;
+    tdElement.textContent = hourlyTotal;
+  }
+  let tdElement = document.createElement('td');
+  tableRow.appendChild(tdElement);
+  tdElement.textContent = Total;
 }
 
 

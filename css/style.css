@@ -1,4 +1,38 @@
    td {
     border: 1px rgb(90, 11, 194) solid;
  }
+ #photo{
  
+   padding: 5px;
+   width: 150px;
+   border-radius: 50%;
+
+ }
+
+ body {
+   background-color: rgb(39, 160, 190);
+}
+
+header {
+   font-family: 'New Tegomin', serif;
+   text-align: center;
+}
+
+nav ul li a {
+   font-family: 'New Tegomin', serif;
+   border: 2px, slategrey;
+
+}
+
+ul {
+   text-align: center;
+}
+
+ul li {
+   display: inline;
+   
+}
+img {
+   border-radius: 20px;
+   
+ }
