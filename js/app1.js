@@ -1,4 +1,5 @@
 /* eslint-disable new-cap */
+
 'use strict';
 
 let hourofOperation = ['6am', '7am', '8am', '9am', '10am',
@@ -74,8 +75,10 @@ function HeaderRow() {
   th2.textContent = 'Daily Location Total';
 }
 function FooterRow() {
+  let Tfooter = document.createElement('tfoot');
+  tableEl.appendChild(Tfooter);
   let tableRow = document.createElement('tr');
-  tableEl.appendChild(tableRow);
+  Tfooter.appendChild(tableRow);
   let Data = document.createElement('td');
   tableRow.appendChild(Data);
   Data.textContent = 'Totals';
@@ -96,6 +99,23 @@ function FooterRow() {
 }
 
 
+let marketform = document.getElementById('Marketform');
+marketform.addEventListener('submit', addmarket);
+function addmarket(event) {
+  event.preventDefault();
+  let location = event.target.location.value;
+  let minCust = event.target.minCust.value;
+  let maxCust = event.target.maxCust.value;
+  let AvgCookiesale = event.target.AvgCookiesale.value;
+
+  let newMarket = new Market(location, minCust, maxCust, AvgCookiesale);
+  tableEl.deleteTFoot();
+  newMarket.addingCoutPerHour();
+  newMarket.cookiesPerHr();
+  newMarket.render();
+  FooterRow();
+
+}
 
 HeaderRow();
 let seattle = new Market('seattle', 23, 65, 6.3);
